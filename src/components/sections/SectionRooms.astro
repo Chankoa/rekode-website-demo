@@ -9,21 +9,22 @@ interface Room {
 }
 
 interface Props {
+  kicker: string;
+  title: string;
+  intro: string;
+  detailLabel: string;
   rooms: Room[];
 }
 
-const { rooms } = Astro.props;
+const { kicker, title, intro, detailLabel, rooms } = Astro.props;
 ---
 
 <section class="alta-section alta-section--muted" id="chambres" aria-labelledby="chambres-title">
   <div class="alta-shell">
     <header class="alta-section__header">
-      <p class="alta-kicker">Chambres</p>
-      <h2 id="chambres-title">Trois façons d'habiter la maison</h2>
-      <p>
-        Chaque espace garde une échelle intime : matières naturelles, vues ouvertes
-        et juste ce qu'il faut de confort pour ralentir.
-      </p>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="chambres-title">{title}</h2>
+      <p>{intro}</p>
     </header>
 
     <div class="alta-room-grid">
@@ -42,7 +43,7 @@ const { rooms } = Astro.props;
             <h3>{room.title}</h3>
             <p>{room.ambiance}</p>
             <a class="alta-room-link" href={room.detailHref}>
-              <span>Voir le détail</span>
+              <span>{detailLabel}</span>
               <svg
                 class="alta-room-link__arrow"
                 viewBox="0 0 24 24"

@@ -6,26 +6,26 @@ interface Experience {
 }
 
 interface Props {
-  experiences: Experience[];
+  kicker: string;
+  title: string;
+  intro: string;
+  experiences: ReadonlyArray<Experience>;
 }
 
-const { experiences } = Astro.props;
+const { kicker, title, intro, experiences } = Astro.props;
 ---
 
 <section class="alta-section" id="experiences" aria-labelledby="experiences-title">
   <div class="alta-shell">
     <header class="alta-section__header">
-      <p class="alta-kicker">Autour du lieu</p>
-      <h2 id="experiences-title">Des expériences simples, ancrées dans le territoire</h2>
-      <p>
-        Maison Alta ne cherche pas à tout remplir. Le séjour s'organise autour
-        de quelques rythmes lisibles : marcher, manger, visiter, se reposer.
-      </p>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="experiences-title">{title}</h2>
+      <p>{intro}</p>
     </header>
 
     <div class="alta-experience-grid">
       {experiences.map((experience, index) => (
-        <article class="alta-experience-card">
+        <article class="alta-experience-card u-card-lift-subtle">
           <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           <h3>{experience.title}</h3>
           <p>{experience.description}</p>

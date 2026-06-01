@@ -1,5 +1,6 @@
 ---
 import Layout from "../../components/layout/Layout.astro";
+import { roomPageContent } from "../../data/page-content";
 import { siteConfig } from "../../data/site-config";
 import { roomDetails, type RoomDetail } from "../../data/rooms";
 
@@ -22,7 +23,7 @@ const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURICompone
 
 <Layout
   title={room.title}
-  description={`${room.title} à Maison Alta : ${room.summary}`}
+  description={`${room.title} à ${siteConfig.name} : ${room.summary}`}
 >
   <article class="alta-room-detail">
     <section class="alta-room-detail-hero" aria-labelledby="room-title">
@@ -39,9 +40,9 @@ const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURICompone
                 stroke-linejoin="round"
               />
             </svg>
-            <span>Retour aux chambres</span>
+            <span>{roomPageContent.backToRoomsLabel}</span>
           </a>
-          <p class="alta-kicker">Maison Alta</p>
+          <p class="alta-kicker">{siteConfig.name}</p>
           <h1 id="room-title">{room.title}</h1>
           <p class="alta-room-detail-hero__summary">{room.summary}</p>
           <dl class="alta-room-detail-facts">
@@ -71,23 +72,23 @@ const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURICompone
     <section class="alta-section" aria-labelledby="room-experience-title">
       <div class="alta-shell alta-room-detail-grid">
         <div class="alta-room-detail-copy">
-          <p class="alta-kicker">L'expérience</p>
-          <h2 id="room-experience-title">Une chambre pensée pour ralentir</h2>
+          <p class="alta-kicker">{roomPageContent.experienceKicker}</p>
+          <h2 id="room-experience-title">{roomPageContent.experienceTitle}</h2>
           <p>{room.description}</p>
           <blockquote class="alta-room-detail-quote">
             <p>{room.atmosphere}</p>
           </blockquote>
         </div>
 
-        <aside class="alta-room-detail-panel" aria-label="Détails de la chambre">
+        <aside class="alta-room-detail-panel" aria-label={roomPageContent.detailsLabel}>
           <div>
-            <h2>Points clés</h2>
+            <h2>{roomPageContent.highlightsTitle}</h2>
             <ul class="alta-room-detail-list">
               {room.highlights.map((item) => <li>{item}</li>)}
             </ul>
           </div>
           <div>
-            <h2>Inclus</h2>
+            <h2>{roomPageContent.inclusionsTitle}</h2>
             <ul class="alta-room-detail-list">
               {room.inclusions.map((item) => <li>{item}</li>)}
             </ul>
@@ -99,16 +100,13 @@ const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURICompone
     <section class="alta-room-detail-cta" aria-labelledby="room-cta-title">
       <div class="alta-shell alta-room-detail-cta__inner">
         <div>
-          <p class="alta-kicker">Préparer le séjour</p>
-          <h2 id="room-cta-title">Vérifier si {room.title} vous correspond</h2>
-          <p>
-            La disponibilité est fictive dans cette démo, mais le parcours montre
-            comment guider un voyageur vers une demande claire et rassurante.
-          </p>
+          <p class="alta-kicker">{roomPageContent.ctaKicker}</p>
+          <h2 id="room-cta-title">Vérifier si {room.title} est disponible</h2>
+          <p>{roomPageContent.ctaBody}</p>
         </div>
         <div class="alta-actions">
-          <a class="btn-primary" href={emailHref}>Écrire à la maison</a>
-          <a class="btn-primary is-outline" href="/#infos">Voir les informations</a>
+          <a class="btn-primary" href={emailHref}>{roomPageContent.primaryLabel}</a>
+          <a class="btn-primary is-outline" href="/#infos">{roomPageContent.secondaryLabel}</a>
         </div>
       </div>
     </section>

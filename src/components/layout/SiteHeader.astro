@@ -36,7 +36,7 @@ import "../../styles/components/site-header.scss";
 
       <button
         id="drawer-open"
-        class="drawer-toggle site-header__icon-button text-[var(--text-strong)]"
+        class="drawer-toggle site-header__icon-button site-header__icon-button--ghost text-[var(--text-strong)]"
         aria-label="Ouvrir le menu"
         type="button"
       >
@@ -61,68 +61,74 @@ import "../../styles/components/site-header.scss";
 
 <aside
   id="mobile-drawer"
-  class="drawer fixed inset-y-0 left-0 w-72 max-w-[80vw] bg-[var(--surface-card)] border-r border-[var(--border-soft)] shadow-2xl z-50 flex flex-col p-6 gap-6"
+  class="drawer fixed inset-0 z-50"
   aria-label="Menu mobile"
+  aria-modal="true"
+  role="dialog"
 >
-  <div class="flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-xs font-bold text-white shadow-md">
-        {siteConfig.name.charAt(0)}
+  <div class="site-header__drawer-inner alta-shell">
+    <div class="site-header__drawer-top">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-[var(--color-accent)] flex items-center justify-center text-xs font-bold text-white shadow-md">
+          {siteConfig.name.charAt(0)}
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-sm font-semibold text-[var(--text-strong)]">{siteConfig.name}</span>
+          <span class="text-xs text-[var(--text-muted)]">{siteConfig.baseline}</span>
+        </div>
       </div>
-      <div class="flex flex-col leading-tight">
-        <span class="text-sm font-semibold text-[var(--text-strong)]">{siteConfig.name}</span>
-        <span class="text-xs text-[var(--text-muted)]">{siteConfig.baseline}</span>
+      <button
+        id="drawer-close"
+        class="site-header__icon-button site-header__icon-button--framed text-[var(--text-strong)]"
+        aria-label="Fermer le menu"
+        type="button"
+      >
+        <svg class="site-header__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="m6.5 6.5 11 11m0-11-11 11"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="site-header__drawer-body">
+      <nav class="site-header__drawer-nav nav nav--stacked" aria-label="Navigation mobile">
+        {siteConfig.navigation.map((item) => (
+          <a
+            href={item.href}
+            class="site-header__drawer-link nav-link transition-colors"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="site-header__drawer-footer">
+        <button
+          id="theme-toggle-mobile"
+          class="w-full inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] px-3 py-3 text-sm font-semibold text-[var(--text-strong)] shadow-sm hover:bg-[var(--surface-card)]"
+          aria-label="Basculer le thème"
+          type="button"
+        >
+          <span id="icon-sun-mobile" class="site-header__theme-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.95 6.95-1.41-1.41M7.46 7.46 6.05 6.05m11.31 0-1.41 1.41M7.46 16.54l-1.41 1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none" />
+            </svg>
+          </span>
+          <span id="icon-moon-mobile" class="site-header__theme-icon hidden" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+          </span>
+          <span id="theme-label-mobile">Mode clair</span>
+        </button>
       </div>
     </div>
-    <button
-      id="drawer-close"
-      class="site-header__icon-button text-[var(--text-strong)]"
-      aria-label="Fermer le menu"
-      type="button"
-    >
-      <svg class="site-header__icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="m6.5 6.5 11 11m0-11-11 11"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-      </svg>
-    </button>
-  </div>
-
-  <nav class="flex flex-col gap-2 text-sm text-[var(--text-muted)] nav nav--stacked">
-    {siteConfig.navigation.map((item) => (
-      <a
-        href={item.href}
-        class="nav-link px-3 py-2 rounded-md transition-colors"
-      >
-        {item.label}
-      </a>
-    ))}
-  </nav>
-
-  <div class="border-t border-[var(--border-soft)] pt-4">
-    <button
-      id="theme-toggle-mobile"
-      class="w-full inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] px-3 py-2 text-sm font-semibold text-[var(--text-strong)] shadow-sm hover:bg-[var(--surface-card)]"
-      aria-label="Basculer le thème"
-      type="button"
-    >
-      <span id="icon-sun-mobile" class="site-header__theme-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" role="presentation">
-          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.95 6.95-1.41-1.41M7.46 7.46 6.05 6.05m11.31 0-1.41 1.41M7.46 16.54l-1.41 1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none" />
-        </svg>
-      </span>
-      <span id="icon-moon-mobile" class="site-header__theme-icon hidden" aria-hidden="true">
-        <svg viewBox="0 0 24 24" role="presentation">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-        </svg>
-      </span>
-      <span id="theme-label-mobile">Mode clair</span>
-    </button>
   </div>
 </aside>
 

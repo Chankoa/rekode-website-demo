@@ -1,25 +1,28 @@
 ---
 interface Props {
+  kicker: string;
   title: string;
   text: string;
   emailHref: string;
   availabilityHref: string;
+  primaryLabel: string;
+  secondaryLabel: string;
 }
 
-const { title, text, emailHref, availabilityHref } = Astro.props;
+const { kicker, title, text, emailHref, availabilityHref, primaryLabel, secondaryLabel } = Astro.props;
 ---
 
 <section class="alta-final-cta" id="contact" aria-labelledby="contact-title">
   <div class="alta-shell alta-final-cta__inner">
     <div>
-      <p class="alta-kicker">Maison Alta</p>
+      <p class="alta-kicker">{kicker}</p>
       <h2 id="contact-title">{title}</h2>
       <p>{text}</p>
     </div>
     <div class="alta-actions">
-      <a href={emailHref} class="btn-primary">Écrire à la maison</a>
+      <a href={emailHref} class="btn-primary">{primaryLabel}</a>
       <a href={availabilityHref} class="btn-primary is-outline">
-        Voir les disponibilités
+        {secondaryLabel}
       </a>
     </div>
   </div>

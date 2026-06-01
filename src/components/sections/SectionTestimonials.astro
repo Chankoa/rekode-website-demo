@@ -6,17 +6,19 @@ interface Testimonial {
 }
 
 interface Props {
-  testimonials: Testimonial[];
+  kicker: string;
+  title: string;
+  testimonials: ReadonlyArray<Testimonial>;
 }
 
-const { testimonials } = Astro.props;
+const { kicker, title, testimonials } = Astro.props;
 ---
 
 <section class="alta-section" aria-labelledby="avis-title">
   <div class="alta-shell">
     <header class="alta-section__header">
-      <p class="alta-kicker">Avis</p>
-      <h2 id="avis-title">Ce que les voyageurs retiennent</h2>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="avis-title">{title}</h2>
     </header>
 
     <div class="alta-testimonial-grid">

@@ -1,19 +1,21 @@
 ---
 interface Props {
+  kicker: string;
   title: string;
   intro: string;
   imageSrc: string;
   imageAlt: string;
-  points: string[];
+  caption: string;
+  points: ReadonlyArray<string>;
 }
 
-const { title, intro, imageSrc, imageAlt, points } = Astro.props;
+const { kicker, title, intro, imageSrc, imageAlt, caption, points } = Astro.props;
 ---
 
 <section class="alta-section" id="lieu" aria-labelledby="lieu-title">
   <div class="alta-shell alta-place">
     <div class="alta-place__content">
-      <p class="alta-kicker">Le lieu</p>
+      <p class="alta-kicker">{kicker}</p>
       <h2 id="lieu-title">{title}</h2>
       <p>{intro}</p>
       <ul class="alta-check-list">
@@ -33,9 +35,7 @@ const { title, intro, imageSrc, imageAlt, points } = Astro.props;
         decoding="async"
         fetchpriority="high"
       />
-      <figcaption>
-        Une maison ouverte sur le paysage, à distance de marche du village.
-      </figcaption>
+      <figcaption>{caption}</figcaption>
     </figure>
   </div>
 </section>

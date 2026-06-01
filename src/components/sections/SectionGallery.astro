@@ -6,17 +6,19 @@ interface GalleryItem {
 }
 
 interface Props {
-  items: GalleryItem[];
+  kicker: string;
+  title: string;
+  items: ReadonlyArray<GalleryItem>;
 }
 
-const { items } = Astro.props;
+const { kicker, title, items } = Astro.props;
 ---
 
 <section class="alta-section alta-section--gallery" aria-labelledby="galerie-title">
   <div class="alta-shell">
     <header class="alta-section__header">
-      <p class="alta-kicker">Atmosphere</p>
-      <h2 id="galerie-title">Quelques fragments du séjour</h2>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="galerie-title">{title}</h2>
     </header>
 
     <div class="alta-gallery-grid">

@@ -1,30 +1,30 @@
 ---
 interface InfoGroup {
   title: string;
-  items: string[];
+  items: ReadonlyArray<string>;
 }
 
 interface Props {
-  groups: InfoGroup[];
+  kicker: string;
+  title: string;
+  intro: string;
+  groups: ReadonlyArray<InfoGroup>;
 }
 
-const { groups } = Astro.props;
+const { kicker, title, intro, groups } = Astro.props;
 ---
 
 <section class="alta-section alta-section--muted" id="infos" aria-labelledby="infos-title">
   <div class="alta-shell">
     <header class="alta-section__header">
-      <p class="alta-kicker">Infos pratiques</p>
-      <h2 id="infos-title">Préparer votre séjour</h2>
-      <p>
-        Les informations essentielles restent visibles, sans transformer la page
-        en brochure exhaustive.
-      </p>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="infos-title">{title}</h2>
+      <p>{intro}</p>
     </header>
 
     <div class="alta-info-grid">
       {groups.map((group) => (
-        <article class="alta-info-card">
+        <article class="alta-info-card u-card-lift-subtle">
           <h3>{group.title}</h3>
           <ul>
             {group.items.map((item) => (

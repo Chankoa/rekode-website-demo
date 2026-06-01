@@ -5,17 +5,19 @@ interface FaqItem {
 }
 
 interface Props {
-  items: FaqItem[];
+  kicker: string;
+  title: string;
+  items: ReadonlyArray<FaqItem>;
 }
 
-const { items } = Astro.props;
+const { kicker, title, items } = Astro.props;
 ---
 
 <section class="alta-section alta-section--faq" aria-labelledby="faq-title">
   <div class="alta-shell alta-faq">
     <header class="alta-section__header">
-      <p class="alta-kicker">Questions fréquentes</p>
-      <h2 id="faq-title">Avant de réserver</h2>
+      <p class="alta-kicker">{kicker}</p>
+      <h2 id="faq-title">{title}</h2>
     </header>
 
     <div class="alta-faq-list">

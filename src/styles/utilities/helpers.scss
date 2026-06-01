@@ -23,3 +23,19 @@
 .u-border-soft {
   border: 1px solid var(--border-soft);
 }
+
+.u-card-lift-subtle {
+  transition:
+    transform 240ms var(--ease-standard, ease),
+    border-color 240ms var(--ease-standard, ease),
+    box-shadow 260ms var(--ease-standard, ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .u-card-lift-subtle:hover,
+  .u-card-lift-subtle:focus-within {
+    transform: translateY(-0.18rem);
+    border-color: color-mix(in srgb, var(--accent-primary) 18%, var(--border-soft));
+    box-shadow: 0 16px 30px rgba(52, 43, 32, 0.08);
+  }
+}

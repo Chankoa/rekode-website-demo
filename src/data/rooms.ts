@@ -1,3 +1,5 @@
+import { siteConfig } from "./site-config";
+
 export interface RoomDetail {
   slug: string;
   title: string;
@@ -45,13 +47,13 @@ export const roomDetails: RoomDetail[] = [
     slug: "suite-atelier",
     title: "Suite Atelier",
     capacity: "2 à 3 personnes",
-    shortAmbiance: "Un volume plus ample, un coin lecture et la fraîcheur des murs anciens.",
+    shortAmbiance: "Un volume ample, un coin lecture et la fraîcheur des murs anciens.",
     summary:
       "Une suite plus ouverte, adaptée aux séjours qui demandent de l'espace, un fauteuil pour lire et une vraie sensation de retrait.",
     description:
       "La Suite Atelier reprend l'ancien volume de travail de la maison. Elle associe un grand lit, une méridienne, une table basse et une salle d'eau minérale. L'ensemble reste sobre, avec quelques pièces choisies et une lumière plus enveloppante.",
     imageSrc: "/images/maison-alta-hero.webp",
-    imageAlt: "Façade en pierre de Maison Alta au coucher du soleil.",
+    imageAlt: `Façade en pierre de ${siteConfig.name} au coucher du soleil.`,
     highlights: [
       "Lit king size 180 cm",
       "Méridienne convertible pour un enfant",
