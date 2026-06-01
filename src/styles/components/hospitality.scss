@@ -1,0 +1,828 @@
+.alta-shell {
+  width: 100%;
+  max-width: 70rem;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.alta-section {
+  padding: 5rem 0;
+  scroll-margin-top: 5rem;
+}
+
+.alta-section--muted {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-muted) 70%, transparent),
+      color-mix(in srgb, var(--surface-card) 55%, transparent)
+    );
+}
+
+.alta-section--gallery {
+  padding-top: 4rem;
+}
+
+.alta-section__header {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.alta-section__header h2,
+.alta-place h2,
+.alta-final-cta h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 2rem;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.alta-section__header p,
+.alta-place p,
+.alta-final-cta p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+}
+
+.alta-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.alta-kicker--light {
+  color: color-mix(in srgb, #fffaf1 82%, var(--accent-tertiary));
+}
+
+.alta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.alta-hero {
+  position: relative;
+  display: grid;
+  min-height: min(46rem, 78svh);
+  overflow: hidden;
+  isolation: isolate;
+  background: #211f1b;
+}
+
+.alta-hero__image,
+.alta-hero__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.alta-hero__image {
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alta-hero__shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(21, 19, 16, 0.76), rgba(21, 19, 16, 0.34) 48%, rgba(21, 19, 16, 0.1)),
+    linear-gradient(180deg, rgba(21, 19, 16, 0.18), rgba(21, 19, 16, 0.72));
+}
+
+.alta-hero__content {
+  align-self: end;
+  padding-block: 7rem 4rem;
+  color: #fffaf1;
+}
+
+.alta-hero h1 {
+  max-width: 8ch;
+  margin: 0;
+  color: #fffaf1;
+  font-size: 3.2rem;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.alta-hero__subtitle {
+  max-width: 38rem;
+  margin: 1.2rem 0 1.7rem;
+  color: rgba(255, 250, 241, 0.84);
+  font-size: 1.05rem;
+}
+
+.alta-hero .btn-primary.is-outline {
+  color: #fffaf1;
+  border-color: rgba(255, 250, 241, 0.58);
+}
+
+.alta-hero .btn-primary.is-outline:hover {
+  background: rgba(255, 250, 241, 0.12);
+}
+
+.alta-hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(100%, 36rem);
+  margin: 3rem 0 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 250, 241, 0.26);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 250, 241, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.alta-hero__facts div {
+  padding: 0.9rem;
+  background: rgba(21, 19, 16, 0.24);
+}
+
+.alta-hero__facts dt {
+  color: #fffaf1;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.alta-hero__facts dd {
+  margin: 0.15rem 0 0;
+  color: rgba(255, 250, 241, 0.72);
+  font-size: 0.78rem;
+}
+
+.alta-place {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.alta-place__content {
+  max-width: 34rem;
+}
+
+.alta-check-list {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 1.8rem 0 0;
+  list-style: none;
+}
+
+.alta-check-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--text-default);
+}
+
+.alta-check-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.52rem;
+  height: 0.52rem;
+  content: "";
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+.alta-place__media,
+.alta-gallery-item {
+  margin: 0;
+}
+
+.alta-place__media img,
+.alta-room-card img,
+.alta-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background: var(--surface-muted);
+}
+
+.alta-place__media img {
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.alta-place__media figcaption,
+.alta-gallery-item figcaption {
+  margin-top: 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.alta-room-grid,
+.alta-experience-grid,
+.alta-info-grid,
+.alta-testimonial-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.alta-room-card,
+.alta-experience-card,
+.alta-info-card,
+.alta-testimonial-card,
+.alta-faq-list details {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-xs);
+}
+
+.alta-room-card {
+  overflow: hidden;
+  transition:
+    transform 180ms var(--ease-standard, ease),
+    border-color 180ms var(--ease-standard, ease),
+    box-shadow 180ms var(--ease-standard, ease);
+}
+
+.alta-room-card img {
+  aspect-ratio: 4 / 3;
+  transition: transform 260ms var(--ease-standard, ease);
+}
+
+.alta-room-card__body {
+  padding: 1.25rem;
+}
+
+.alta-room-card__capacity {
+  margin: 0 0 0.55rem;
+  color: var(--accent-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.alta-room-card h3,
+.alta-experience-card h3,
+.alta-info-card h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.alta-room-card p,
+.alta-experience-card p,
+.alta-info-card li,
+.alta-testimonial-card blockquote,
+.alta-faq-list p {
+  color: var(--text-muted);
+}
+
+.alta-room-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  margin-top: 1rem;
+  color: var(--accent-primary-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alta-room-link__arrow {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 180ms var(--ease-standard, ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .alta-room-card:hover {
+    transform: translateY(-0.38rem);
+    border-color: color-mix(in srgb, var(--accent-primary) 34%, var(--border-soft));
+    box-shadow: 0 26px 56px rgba(52, 43, 32, 0.16);
+  }
+
+  .alta-room-card:hover img {
+    transform: scale(1.025);
+  }
+
+  .alta-room-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .alta-room-link:hover .alta-room-link__arrow,
+  .alta-room-card:hover .alta-room-link__arrow {
+    transform: translateX(0.26rem);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .alta-room-link:hover {
+    color: var(--accent-primary-strong);
+    text-decoration: none;
+  }
+}
+
+.alta-experience-card {
+  padding: 1.25rem;
+}
+
+.alta-experience-card span {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  color: var(--accent-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.alta-experience-card small {
+  display: block;
+  margin-top: 1.4rem;
+  color: var(--text-default);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.alta-gallery-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.alta-gallery-item img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+}
+
+.alta-gallery-item--1 img {
+  aspect-ratio: 2 / 1;
+}
+
+.alta-info-card {
+  padding: 1.25rem;
+}
+
+.alta-info-card ul {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+
+.alta-testimonial-card {
+  display: grid;
+  align-content: space-between;
+  min-height: 14rem;
+  padding: 1.35rem;
+  margin: 0;
+}
+
+.alta-testimonial-card blockquote {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.alta-testimonial-card figcaption {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 1.5rem;
+}
+
+.alta-testimonial-card strong {
+  color: var(--text-strong);
+}
+
+.alta-testimonial-card span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.alta-faq {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.alta-faq-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.alta-faq-list details {
+  padding: 1rem 1.1rem;
+}
+
+.alta-faq-list summary {
+  cursor: pointer;
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.alta-faq-list p {
+  margin: 0.75rem 0 0;
+}
+
+.alta-final-cta {
+  padding: 5rem 0;
+  color: #fffaf1;
+  background:
+    linear-gradient(135deg, rgba(38, 35, 31, 0.96), rgba(64, 80, 53, 0.92)),
+    var(--text-strong);
+}
+
+.alta-final-cta__inner {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+}
+
+.alta-final-cta h2,
+.alta-final-cta p {
+  color: #fffaf1;
+}
+
+.alta-final-cta p {
+  max-width: 40rem;
+  color: rgba(255, 250, 241, 0.76);
+}
+
+.alta-final-cta .btn-primary.is-outline {
+  color: #fffaf1;
+  border-color: rgba(255, 250, 241, 0.46);
+}
+
+.alta-room-detail {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-muted) 42%, transparent),
+      transparent 24rem
+    ),
+    var(--surface-bg);
+}
+
+.alta-room-detail-hero {
+  padding: 3.5rem 0 4rem;
+}
+
+.alta-room-detail-hero__grid {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+}
+
+.alta-room-detail-hero__content {
+  max-width: 42rem;
+}
+
+.alta-room-detail-hero h1 {
+  max-width: 10ch;
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 3rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.alta-room-detail-hero__summary {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.alta-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.7rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alta-back-link svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 180ms var(--ease-standard, ease);
+}
+
+.alta-room-detail-facts {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.8rem 0 0;
+}
+
+.alta-room-detail-facts div {
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface-card) 80%, transparent);
+}
+
+.alta-room-detail-facts dt {
+  color: var(--accent-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.alta-room-detail-facts dd {
+  margin: 0.2rem 0 0;
+  color: var(--text-strong);
+}
+
+.alta-room-detail-hero__media {
+  margin: 0;
+}
+
+.alta-room-detail-hero__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.alta-room-detail-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+.alta-room-detail-copy {
+  max-width: 42rem;
+}
+
+.alta-room-detail-copy h2,
+.alta-room-detail-panel h2,
+.alta-room-detail-cta h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.55rem;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.alta-room-detail-copy > p:not(.alta-kicker),
+.alta-room-detail-cta p {
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+}
+
+.alta-room-detail-quote {
+  margin: 1.8rem 0 0;
+  padding: 1.25rem 0 1.25rem 1.25rem;
+  border-left: 2px solid var(--accent-secondary);
+  color: var(--text-default);
+}
+
+.alta-room-detail-quote p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.alta-room-detail-panel {
+  display: grid;
+  gap: 1.35rem;
+  padding: 1.35rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-xs);
+}
+
+.alta-room-detail-panel h2 {
+  font-size: 1rem;
+}
+
+.alta-room-detail-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0.85rem 0 0;
+  list-style: none;
+}
+
+.alta-room-detail-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+}
+
+.alta-room-detail-list li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  content: "";
+  border-radius: 999px;
+  background: var(--accent-primary);
+}
+
+.alta-room-detail-cta {
+  padding: 4rem 0 5rem;
+}
+
+.alta-room-detail-cta__inner {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+  padding: 1.6rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface-card) 88%, transparent), var(--surface-muted)),
+    var(--surface-card);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .alta-back-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .alta-back-link:hover svg {
+    transform: translateX(-0.2rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .alta-section {
+    padding: 6.5rem 0;
+  }
+
+  .alta-section__header h2,
+  .alta-place h2,
+  .alta-final-cta h2 {
+    font-size: 2.6rem;
+  }
+
+  .alta-hero h1 {
+    font-size: 5rem;
+  }
+
+  .alta-hero__subtitle {
+    font-size: 1.15rem;
+  }
+
+  .alta-place {
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  }
+
+  .alta-room-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .alta-experience-grid,
+  .alta-info-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .alta-testimonial-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .alta-gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-flow: dense;
+  }
+
+  .alta-gallery-item--1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .alta-gallery-item--1 img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .alta-final-cta__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .alta-room-detail-hero {
+    padding: 5rem 0 5.5rem;
+  }
+
+  .alta-room-detail-hero__grid {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  }
+
+  .alta-room-detail-hero h1 {
+    font-size: 4.6rem;
+  }
+
+  .alta-room-detail-facts {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  }
+
+  .alta-room-detail-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr);
+  }
+
+  .alta-room-detail-cta__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 68rem) {
+  .alta-hero h1 {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 38rem) {
+  .alta-section__header,
+  .alta-place__content,
+  .alta-hero__subtitle {
+    max-width: 22rem;
+  }
+
+  .alta-section__header h2,
+  .alta-place h2,
+  .alta-final-cta h2 {
+    font-size: 1.78rem;
+    line-height: 1.16;
+  }
+
+  .alta-section__header p,
+  .alta-place p,
+  .alta-final-cta p,
+  .alta-room-card p,
+  .alta-experience-card p,
+  .alta-info-card li,
+  .alta-faq-list p {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .alta-hero {
+    min-height: 41rem;
+  }
+
+  .alta-hero h1 {
+    font-size: 3.35rem;
+  }
+
+  .alta-hero__subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .alta-actions {
+    width: 100%;
+    gap: 0.7rem;
+  }
+
+  .alta-actions .btn-primary {
+    flex: 1 1 13rem;
+  }
+
+  .alta-hero__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .alta-hero__content {
+    padding-bottom: 2.5rem;
+  }
+
+  .alta-room-card__body,
+  .alta-experience-card,
+  .alta-info-card,
+  .alta-testimonial-card,
+  .alta-faq-list details {
+    padding: 1.15rem;
+  }
+
+  .alta-room-link {
+    min-height: 2.4rem;
+    font-size: 0.96rem;
+  }
+
+  .alta-room-detail-hero {
+    padding: 2.4rem 0 3rem;
+  }
+
+  .alta-room-detail-hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .alta-room-detail-hero__summary,
+  .alta-room-detail-copy > p:not(.alta-kicker),
+  .alta-room-detail-cta p,
+  .alta-room-detail-quote p {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .alta-room-detail-cta__inner {
+    padding: 1.25rem;
+  }
+}

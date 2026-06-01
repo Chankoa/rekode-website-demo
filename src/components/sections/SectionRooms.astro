@@ -1,0 +1,66 @@
+---
+interface Room {
+  title: string;
+  capacity: string;
+  ambiance: string;
+  detailHref: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+interface Props {
+  rooms: Room[];
+}
+
+const { rooms } = Astro.props;
+---
+
+<section class="alta-section alta-section--muted" id="chambres" aria-labelledby="chambres-title">
+  <div class="alta-shell">
+    <header class="alta-section__header">
+      <p class="alta-kicker">Chambres</p>
+      <h2 id="chambres-title">Trois façons d'habiter la maison</h2>
+      <p>
+        Chaque espace garde une échelle intime : matières naturelles, vues ouvertes
+        et juste ce qu'il faut de confort pour ralentir.
+      </p>
+    </header>
+
+    <div class="alta-room-grid">
+      {rooms.map((room) => (
+        <article class="alta-room-card">
+          <img
+            src={room.imageSrc}
+            alt={room.imageAlt}
+            width="1200"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="alta-room-card__body">
+            <p class="alta-room-card__capacity">{room.capacity}</p>
+            <h3>{room.title}</h3>
+            <p>{room.ambiance}</p>
+            <a class="alta-room-link" href={room.detailHref}>
+              <span>Voir le détail</span>
+              <svg
+                class="alta-room-link__arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 12h13m-5-5 5 5-5 5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+interface GalleryItem {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="alta-section alta-section--gallery" aria-labelledby="galerie-title">
+  <div class="alta-shell">
+    <header class="alta-section__header">
+      <p class="alta-kicker">Atmosphere</p>
+      <h2 id="galerie-title">Quelques fragments du séjour</h2>
+    </header>
+
+    <div class="alta-gallery-grid">
+      {items.map((item, index) => (
+        <figure class={`alta-gallery-item alta-gallery-item--${index + 1}`}>
+          <img
+            src={item.src}
+            alt={item.alt}
+            width={index < 2 ? "1440" : "1200"}
+            height={index < 2 ? "720" : "800"}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{item.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

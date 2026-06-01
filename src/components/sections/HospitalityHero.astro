@@ -1,0 +1,65 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  imageSrc,
+  imageAlt,
+} = Astro.props;
+---
+
+<section class="alta-hero" aria-labelledby="hero-title">
+  <img
+    class="alta-hero__image"
+    src={imageSrc}
+    alt={imageAlt}
+    width="1440"
+    height="720"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <div class="alta-hero__shade" aria-hidden="true"></div>
+
+  <div class="alta-shell alta-hero__content">
+    <p class="alta-kicker alta-kicker--light">{eyebrow}</p>
+    <h1 id="hero-title">{title}</h1>
+    <p class="alta-hero__subtitle">{subtitle}</p>
+    <div class="alta-actions">
+      <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel}</a>
+      <a href={secondaryCtaHref} class="btn-primary is-outline">
+        {secondaryCtaLabel}
+      </a>
+    </div>
+    <dl class="alta-hero__facts" aria-label="Informations rapides">
+      <div>
+        <dt>5</dt>
+        <dd>chambres</dd>
+      </div>
+      <div>
+        <dt>8 min</dt>
+        <dd>du village</dd>
+      </div>
+      <div>
+        <dt>Avril - octobre</dt>
+        <dd>saison principale</dd>
+      </div>
+    </dl>
+  </div>
+</section>

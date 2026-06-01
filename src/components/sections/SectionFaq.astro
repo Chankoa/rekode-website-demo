@@ -1,0 +1,30 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="alta-section alta-section--faq" aria-labelledby="faq-title">
+  <div class="alta-shell alta-faq">
+    <header class="alta-section__header">
+      <p class="alta-kicker">Questions fréquentes</p>
+      <h2 id="faq-title">Avant de réserver</h2>
+    </header>
+
+    <div class="alta-faq-list">
+      {items.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

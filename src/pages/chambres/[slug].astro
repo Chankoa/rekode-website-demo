@@ -1,0 +1,116 @@
+---
+import Layout from "../../components/layout/Layout.astro";
+import { siteConfig } from "../../data/site-config";
+import { roomDetails, type RoomDetail } from "../../data/rooms";
+
+export function getStaticPaths() {
+  return roomDetails.map((room) => ({
+    params: { slug: room.slug },
+    props: { room },
+  }));
+}
+
+interface Props {
+  room: RoomDetail;
+}
+
+const { room } = Astro.props as Props;
+const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+  `Demande de séjour - ${room.title}`
+)}`;
+---
+
+<Layout
+  title={room.title}
+  description={`${room.title} à Maison Alta : ${room.summary}`}
+>
+  <article class="alta-room-detail">
+    <section class="alta-room-detail-hero" aria-labelledby="room-title">
+      <div class="alta-shell alta-room-detail-hero__grid">
+        <div class="alta-room-detail-hero__content">
+          <a class="alta-back-link" href="/#chambres">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M19 12H6m5-5-5 5 5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Retour aux chambres</span>
+          </a>
+          <p class="alta-kicker">Maison Alta</p>
+          <h1 id="room-title">{room.title}</h1>
+          <p class="alta-room-detail-hero__summary">{room.summary}</p>
+          <dl class="alta-room-detail-facts">
+            <div>
+              <dt>Capacité</dt>
+              <dd>{room.capacity}</dd>
+            </div>
+            <div>
+              <dt>Séjour</dt>
+              <dd>{room.stayNote}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="alta-room-detail-hero__media">
+          <img
+            src={room.imageSrc}
+            alt={room.imageAlt}
+            width="1400"
+            height="950"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <section class="alta-section" aria-labelledby="room-experience-title">
+      <div class="alta-shell alta-room-detail-grid">
+        <div class="alta-room-detail-copy">
+          <p class="alta-kicker">L'expérience</p>
+          <h2 id="room-experience-title">Une chambre pensée pour ralentir</h2>
+          <p>{room.description}</p>
+          <blockquote class="alta-room-detail-quote">
+            <p>{room.atmosphere}</p>
+          </blockquote>
+        </div>
+
+        <aside class="alta-room-detail-panel" aria-label="Détails de la chambre">
+          <div>
+            <h2>Points clés</h2>
+            <ul class="alta-room-detail-list">
+              {room.highlights.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h2>Inclus</h2>
+            <ul class="alta-room-detail-list">
+              {room.inclusions.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="alta-room-detail-cta" aria-labelledby="room-cta-title">
+      <div class="alta-shell alta-room-detail-cta__inner">
+        <div>
+          <p class="alta-kicker">Préparer le séjour</p>
+          <h2 id="room-cta-title">Vérifier si {room.title} vous correspond</h2>
+          <p>
+            La disponibilité est fictive dans cette démo, mais le parcours montre
+            comment guider un voyageur vers une demande claire et rassurante.
+          </p>
+        </div>
+        <div class="alta-actions">
+          <a class="btn-primary" href={emailHref}>Écrire à la maison</a>
+          <a class="btn-primary is-outline" href="/#infos">Voir les informations</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>

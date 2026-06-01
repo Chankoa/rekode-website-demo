@@ -1,0 +1,36 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  stay: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="alta-section" aria-labelledby="avis-title">
+  <div class="alta-shell">
+    <header class="alta-section__header">
+      <p class="alta-kicker">Avis</p>
+      <h2 id="avis-title">Ce que les voyageurs retiennent</h2>
+    </header>
+
+    <div class="alta-testimonial-grid">
+      {testimonials.map((testimonial) => (
+        <figure class="alta-testimonial-card">
+          <blockquote>
+            "{testimonial.quote}"
+          </blockquote>
+          <figcaption>
+            <strong>{testimonial.author}</strong>
+            <span>{testimonial.stay}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+  intro: string;
+  imageSrc: string;
+  imageAlt: string;
+  points: string[];
+}
+
+const { title, intro, imageSrc, imageAlt, points } = Astro.props;
+---
+
+<section class="alta-section" id="lieu" aria-labelledby="lieu-title">
+  <div class="alta-shell alta-place">
+    <div class="alta-place__content">
+      <p class="alta-kicker">Le lieu</p>
+      <h2 id="lieu-title">{title}</h2>
+      <p>{intro}</p>
+      <ul class="alta-check-list">
+        {points.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
+    </div>
+
+    <figure class="alta-place__media">
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        width="1440"
+        height="720"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <figcaption>
+        Une maison ouverte sur le paysage, à distance de marche du village.
+      </figcaption>
+    </figure>
+  </div>
+</section>

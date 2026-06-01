@@ -1,0 +1,74 @@
+@use "../semantic-tokens" as tokens;
+
+/*
+ * Maison Alta theme: restrained hospitality palette for the demo site.
+ */
+
+$maison-alta-tokens: (
+  surface-bg: #f7f2e8,
+  surface-card: #fffaf1,
+  surface-muted: #ece3d3,
+  text-strong: #26231f,
+  text-default: #37322b,
+  text-muted: #746b5d,
+  text-inverse: #fffaf1,
+  border-soft: rgba(73, 63, 48, 0.16),
+  border-strong: rgba(73, 63, 48, 0.34),
+  accent-primary: #61724d,
+  accent-primary-strong: #405035,
+  accent-secondary: #9a694d,
+  accent-tertiary: #c4a06a,
+  status-info: #61724d,
+  status-success: #6f814f,
+  status-warning: #c4a06a,
+  status-danger: #a55242
+);
+
+[data-theme="maison-alta"][data-base-theme="maison-alta"],
+[data-theme="maison-alta"] {
+  @include tokens.apply-theme($maison-alta-tokens);
+
+  --color-bg: var(--surface-bg);
+  --color-bg-alt: var(--surface-card);
+  --color-text: var(--text-default);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent-primary);
+  --color-border: var(--border-soft);
+  --shadow-soft: 0 18px 48px rgba(52, 43, 32, 0.12);
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+$maison-alta-dark-tokens: (
+  surface-bg: #171715,
+  surface-card: #211f1b,
+  surface-muted: #2b2821,
+  text-strong: #fbf5ea,
+  text-default: #eee4d6,
+  text-muted: #bdb09e,
+  text-inverse: #171715,
+  border-soft: rgba(238, 228, 214, 0.18),
+  border-strong: rgba(238, 228, 214, 0.34),
+  accent-primary: #aabd86,
+  accent-primary-strong: #c5d49a,
+  accent-secondary: #d19b76,
+  accent-tertiary: #d8bd85,
+  status-info: #aabd86,
+  status-success: #b7ca8d,
+  status-warning: #d8bd85,
+  status-danger: #d18978
+);
+
+[data-theme="dark"][data-base-theme="maison-alta"] {
+  @include tokens.apply-theme($maison-alta-dark-tokens);
+
+  --color-bg: var(--surface-bg);
+  --color-bg-alt: var(--surface-card);
+  --color-text: var(--text-default);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent-primary);
+  --color-border: var(--border-soft);
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.28);
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
