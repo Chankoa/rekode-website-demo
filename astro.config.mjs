@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 
 const removeToolbarAuditPrebundle = () => ({
   name: 'remove-toolbar-audit-prebundle',
@@ -18,7 +17,6 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [tailwind()],
   srcDir: 'src',
   vite: {
     plugins: [removeToolbarAuditPrebundle()],

@@ -2,6 +2,8 @@
 
 Démo de site web développée avec Astro.
 
+Pré-requis local : Node.js 22.12.0 ou supérieur.
+
 ## Stack
 
 - Astro
@@ -38,9 +40,18 @@ Configuration attendue :
 - Base directory : laisser vide
 - Build command : géré par `netlify.toml`
 - Publish directory : `dist`
-- Node.js : `18`
+- Node.js : `22.12.0`
 
 Une fois le dépôt importé, Netlify utilisera automatiquement la configuration présente dans `netlify.toml`.
+
+Étapes recommandées :
+
+1. Créer un nouveau site dans Netlify depuis GitHub.
+2. Sélectionner le dépôt `Chankoa/rekode-website-demo`.
+3. Vérifier que le dossier de base est vide.
+4. Laisser Netlify lire `netlify.toml` pour la commande de build et le dossier `dist`.
+5. Lancer le premier déploiement.
+6. Si besoin, relancer un déploiement avec cache vidé en cas de problème sur les dépendances optionnelles Rollup.
 
 ## Versionnage
 

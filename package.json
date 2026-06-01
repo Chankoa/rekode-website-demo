@@ -1,9 +1,9 @@
 {
-  "name": "vitrine-astro-template",
+  "name": "maison-alta-demo",
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12.0"
   },
   "packageManager": "npm@10.8.2",
   "scripts": {
@@ -13,10 +13,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "astro": "^5.18.2"
+    "astro": "^6.4.2"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "astro-eslint-parser": "^1.2.1",
